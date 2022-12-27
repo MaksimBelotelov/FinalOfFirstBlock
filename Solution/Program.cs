@@ -5,6 +5,10 @@ string[] array=InputArrayOfStrings();
 Console.WriteLine("Вы ввели следующий массив строк: ");
 PrintArrayOfStrings(array);
 
+Console.WriteLine("Массив из строк длиной 3 или менее: ");
+PrintArrayOfStrings(FindThreeSymbolsStrings(array));
+
+
 string[] InputArrayOfStrings() // метод ввода массива строк
 {
     string[] arrayOfStrings=new string[0], buf=new string[0];
@@ -37,3 +41,23 @@ void PrintArrayOfStrings(string[] array) // метод для вывода вв�
         Console.Write($"{array[i]} ");
     Console.WriteLine();
 }
+
+string[] FindThreeSymbolsStrings(string[] inputArray) // метод для формирования массива строк, длиной 3 и менее
+{
+    int numberOfStrings=0;
+   
+    for(int i=0;i<inputArray.Length;i++)
+        if(inputArray[i].Length<=3)
+            numberOfStrings++;
+
+    string[] arrayOfThreeSymbolsStrings=new string[numberOfStrings];
+    int j=0;
+
+    for(int i=0;i<inputArray.Length;i++)
+        if(inputArray[i].Length<=3)
+        {
+            arrayOfThreeSymbolsStrings[j]=inputArray[i];
+            j++;
+        }
+    return arrayOfThreeSymbolsStrings;
+}           
