@@ -2,6 +2,9 @@
 
 string[] array=InputArrayOfStrings();
 
+Console.WriteLine("Вы ввели следующий массив строк: ");
+PrintArrayOfStrings(array);
+
 string[] InputArrayOfStrings() // метод ввода массива строк
 {
     string[] arrayOfStrings=new string[0], buf=new string[0];
@@ -26,4 +29,11 @@ string[] InputArrayOfStrings() // метод ввода массива стро�
     while(inputString!=string.Empty);
 
     return arrayOfStrings;
+}
+
+void PrintArrayOfStrings(string[] array) // метод для вывода введенного пользователем массива
+{
+    for(int i=0;i<array.Length;i++)
+        Console.Write($"{array[i]} ");
+    Console.WriteLine();
 }
